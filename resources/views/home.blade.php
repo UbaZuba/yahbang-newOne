@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <!--CREATE POST FORM-->
+                        {{-- CREATE POST FORM --}}
                         <form enctype="multipart/form-data" method="POST" action="{{ route('createPost') }}">
                             @csrf
 
@@ -51,10 +51,16 @@
                             <div class="dropdown">
                                 <button style="float: right;" type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown">
                                 </button>
+
+
+
+
                                 <div class="dropdown-menu">
 
-                                    {{-- POST USER DATA --}}
                                 </div>
+
+
+
                             </div>
                             <div>{{$post->user->name}}</div>
                             <div id="post-date">{{$post->created_at->diffForHumans()}}</div>
@@ -65,10 +71,26 @@
                             <div>{{$post->body}}</div>
                             @if(!empty($post->photo_id ))
                                 <img class="post-image" src="/images/{{ $post->photo->file }}" alt="">
-                            @else
-                                <img class="post-image" src="http://placehold.it/400x400" alt="">
                             @endif
                         </div>
+
+                        <div class="card-footer post-footer">
+                            <form method="POST">
+                                <button type="submit" action="" class="btn btn-primary post-btn">Like</button>
+                                @csrf
+                            </form>
+                            {{-- SHARE POST FORM --}}
+                            <form method="POST">
+                                <button type="submit" action="" class="btn btn-primary post-btn">Share</button>
+                                @csrf
+                            </form>
+                            {{-- POST COMMENT FORM --}}
+                            <form method="POST" action="">
+                                <button type="submit" class="btn btn-primary post-btn">Comment</button>
+                                @csrf
+                            </form>
+                        </div>
+
 
                     </div>{{-- Card Close--}}
                 @endforeach
