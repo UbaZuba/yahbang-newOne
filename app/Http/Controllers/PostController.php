@@ -110,6 +110,9 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        unlink(public_path('images') . "/" . $post->photo->file);
+        $post->delete();
+        return redirect('home');
     }
 }

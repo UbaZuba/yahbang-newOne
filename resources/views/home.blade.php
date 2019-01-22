@@ -57,6 +57,13 @@
 
                                 <div class="dropdown-menu">
                                     <a href="{{route('editPost', $post->id)}}" class="btn btn-info btn-xs" role="button">Edit</a>
+                                    <form>
+                                        <a href="{{route('deletePost', $post->id)}}" class="btn btn-info btn-xs" role="button">Delete</a >
+                                        @csrf
+                                        @method('DELETE')
+                                    </form>
+
+
                                 </div>
 
 

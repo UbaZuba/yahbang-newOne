@@ -27,5 +27,6 @@ Route::group([], function() {
     Route::get('edit/{id}', 'PostController@index')->name('editPost');
     Route::post('home', 'PostController@store')->name('createPost');
     Route::patch('edit/{id}', 'PostController@update')->name('updatePost');
+    Route::get('home/{id}', 'PostController@destroy')->name('deletePost');
 });
 
