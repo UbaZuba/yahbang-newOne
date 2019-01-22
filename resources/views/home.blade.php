@@ -56,7 +56,7 @@
 
 
                                 <div class="dropdown-menu">
-
+                                    <a href="{{route('editPost', $post->id)}}" class="btn btn-info btn-xs" role="button">Edit</a>
                                 </div>
 
 

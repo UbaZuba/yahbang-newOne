@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Photo;
+use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use function Sodium\compare;
@@ -19,9 +20,10 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $posts = Post::findOrFail($id);
+        return view('edit', compact('posts'));
     }
 
     /**
@@ -66,7 +68,6 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**
